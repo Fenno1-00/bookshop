@@ -1,5 +1,5 @@
 {
-  "welcomeFile": "/ns.bookapp/index.html",
+  "welcomeFile": "/nsbookapp/index.html",
   "authenticationMethod": "route",
   "routes": [
     {
