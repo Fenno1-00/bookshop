@@ -1,0 +1,176 @@
+{
+  "namespace": "my.bookshop",
+  "definitions": {
+    "my.bookshop.Books": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "title": {
+          "type": "cds.String"
+        },
+        "stock": {
+          "type": "cds.Integer"
+        },
+        "author": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "CatalogService": {
+      "@source": "srv/catalog-service.cds",
+      "kind": "service"
+    },
+    "CatalogService.Books": {
+      "kind": "entity",
+      "@odata.draft.enabled": true,
+      "@UI.FieldGroup#GeneratedGroup.$Type": "UI.FieldGroupType",
+      "@UI.FieldGroup#GeneratedGroup.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Label": "ID",
+          "Value": {
+            "=": "ID"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "title",
+          "Value": {
+            "=": "title"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "stock",
+          "Value": {
+            "=": "stock"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "author",
+          "Value": {
+            "=": "author"
+          }
+        }
+      ],
+      "@UI.Facets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "ID": "GeneratedFacet1",
+          "Label": "General Information",
+          "Target": "@UI.FieldGroup#GeneratedGroup"
+        }
+      ],
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Label": "ID",
+          "Value": {
+            "=": "ID"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "title",
+          "Value": {
+            "=": "title"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "stock",
+          "Value": {
+            "=": "stock"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Label": "author",
+          "Value": {
+            "=": "author"
+          }
+        }
+      ],
+      "projection": {
+        "from": {
+          "ref": [
+            "my.bookshop.Books"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "title": {
+          "type": "cds.String"
+        },
+        "stock": {
+          "type": "cds.Integer"
+        },
+        "author": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "cds.outbox.Messages": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "timestamp": {
+          "type": "cds.Timestamp"
+        },
+        "target": {
+          "type": "cds.String"
+        },
+        "msg": {
+          "type": "cds.LargeString"
+        },
+        "attempts": {
+          "type": "cds.Integer",
+          "default": {
+            "val": 0
+          }
+        },
+        "partition": {
+          "type": "cds.Integer",
+          "default": {
+            "val": 0
+          }
+        },
+        "lastError": {
+          "type": "cds.LargeString"
+        },
+        "lastAttemptTimestamp": {
+          "type": "cds.Timestamp"
+        },
+        "status": {
+          "type": "cds.String",
+          "length": 23
+        },
+        "task": {
+          "type": "cds.String",
+          "length": 255
+        },
+        "appid": {
+          "type": "cds.String",
+          "length": 255
+        }
+      }
+    }
+  },
+  "meta": {
+    "creator": "CDS Compiler v6.8.0",
+    "compilerCsnFlavor": "inferred",
+    "flavor": "inferred"
+  },
+  "$version": "2.0"
+}
